@@ -1,0 +1,54 @@
+pinot:
+  image:
+    repository: apachepinot/pinot
+    tag: 0.6.0
+  cluster:
+    name: pinot
+  controller:
+    persistence:
+      storageClass: pd-ssd
+  server:
+    replicaCount: 3
+    persistence:
+      storageClass: pd-ssd
+  minion:
+    # workaround for https://github.com/apache/incubator-pinot/issues/6704
+    dataDir: /var/pinot/minion/data/data
+    persistence:
+      storageClass: pd-ssd
+
+  zookeeper:
+    persistence:
+      storageClass: pd-ssd
+
+kafka:
+  nameOverride: kafka
+
+  persistence:
+    storageClass: pd-ssd
+
+  provisioning:
+    enabled: true
+
+    topics:
+    - name: pullRequestMergedEvents
+      partitions: 1
+      replicationFactor: 1
+      # https://kafka.apache.org/documentation/#topicconfigs
+#       config:
+#         max.message.bytes: 64000
+#         flush.messages: 1
+
+  zookeeper:
+    nameOverride: kafka-zookeeper
+    persistence:
+      storageClass: pd-ssd
+
+storageClass:
+  create: true
+  name: pd-ssd
+  type: pd-ssd
+  provisioner: pd.csi.storage.gke.io
+  allowVolumeExpansion: true
+  reclaimPolicy: Delete
+  volumeBindingMode: WaitForFirstConsumer

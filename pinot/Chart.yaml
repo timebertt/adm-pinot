@@ -1,0 +1,14 @@
+apiVersion: v2
+name: pinot
+description: A Helm chart for playing around with Pinot
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+- name: pinot
+  version: 0.2.3
+  repository: https://raw.githubusercontent.com/apache/incubator-pinot/master/kubernetes/helm
+- name: kafka
+  version: 12.12.0
+  repository: https://charts.bitnami.com/bitnami

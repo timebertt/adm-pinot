@@ -1,0 +1,9 @@
+dependencies:
+- name: pinot
+  repository: https://raw.githubusercontent.com/apache/incubator-pinot/master/kubernetes/helm
+  version: 0.2.3
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.12.0
+digest: sha256:df7bd19cd6abff713f56fce39c9204904936128d373526a73019878044ca199d
+generated: "2021-03-21T17:01:06.037854+01:00"
