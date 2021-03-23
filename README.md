@@ -50,3 +50,25 @@ Copy the generated token from GitHub and store it in `pinot/values.secret.yaml` 
     ```bash
     helm install superset -f ./superset/values.overwrite.yaml ./superset
     ```
+
+## Setup JupyterHub
+
+1. Create namespace:
+    ```bash
+    kubectl create namespace jupyter 
+    ```
+   
+1. Update chart dependencies
+    ```bash
+    helm dependency update jupyter
+    ```
+
+1. Customize `values.yaml`.
+
+1. Create a [GitHub OAuth application](https://github.com/settings/applications/new) and add client ID and client secret
+to the corresponding values in `values.secret.yaml`.
+
+1. Install JupyterHub:
+    ```bash
+    helm -n jupyter install jupyter -f jupyter/values.secret.yaml ./jupyter
+    ```

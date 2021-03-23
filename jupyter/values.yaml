@@ -1,0 +1,42 @@
+jupyterhub:
+  proxy:
+    service:
+      type: ClusterIP # disable LoadBalancer, we'll use an Ingress
+
+  singleuser:
+    defaultUrl: "/lab" # switch to new UI
+    image:
+      name: jupyter/scipy-notebook
+      tag: 3395de4db93a
+
+  hub:
+    config:
+      GitHubOAuthenticator:
+        # configures these values in values.secret.yaml
+        # client_id: <client-id>
+        # client_secret: <client-secret>
+        oauth_callback_url: https://jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com/hub/oauth_callback
+        allowed_users:
+        - timebertt
+        - nikolacornelia
+#        - pfisterer
+        scope:
+        - read:user
+      JupyterHub:
+        authenticator_class: github
+      Authenticator:
+        auto_login: true
+        admin_users:
+        - timebertt
+        - nikolacornelia
+
+  ingress:
+    enabled: true
+    annotations:
+      cert.gardener.cloud/purpose: managed
+    tls:
+    - hosts:
+      - jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com
+      secretName: jupyter-tls
+    hosts:
+    - jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com

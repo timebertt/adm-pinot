@@ -1,0 +1,11 @@
+apiVersion: v2
+name: pinot
+description: A Helm chart for deploying a JupyterHub instance
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+- name: jupyterhub
+  version: 0.11.1
+  repository: https://jupyterhub.github.io/helm-chart
