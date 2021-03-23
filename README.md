@@ -29,8 +29,8 @@ Ref: https://medium.com/apache-pinot-developer-blog/using-apache-pinot-and-kafka
 
 1. Create namespace.
     ```bash
-    kubectl create namespace pinot-test
-    kubens pinot-test
+    kubectl create namespace pinot
+    kubens pinot
     ```
 
 1. Add helm repo.
