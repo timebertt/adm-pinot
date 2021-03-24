@@ -6,8 +6,8 @@ jupyterhub:
   singleuser:
     defaultUrl: "/lab" # switch to new UI
     image:
-      name: jupyter/scipy-notebook
-      tag: 3395de4db93a
+      name: ghcr.io/timebertt/adm-pinot/jupyter-pinot
+      tag: 0ca1fcc267da3a3d7e9507baf2421a5d9459a467
 
   hub:
     config:
