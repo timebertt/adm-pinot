@@ -4,7 +4,7 @@
 
 1. Create namespace:
     ```bash
-    kubectl create namespace jupyter 
+    kubectl create namespace jupyter
     ```
    
 1. Update chart dependencies
@@ -21,6 +21,8 @@ to the corresponding values in `values.secret.yaml`.
     ```bash
     helm -n jupyter install jupyter -f jupyter/values.secret.yaml ./jupyter
     ```
+
+1. Navigate to [JupyterHub](https://jupyter.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com).
 
 ## Setup Pinot
 
@@ -47,7 +49,7 @@ Ref: https://medium.com/apache-pinot-developer-blog/using-apache-pinot-and-kafka
 
 1. Optionally adapt `values.yaml`.
 
-1. Create a [personal access token for GitHub](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+1. When enabling the GitHub example: Create a [personal access token for GitHub](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 for accessing the GitHub events API (source of data for this test scenario).
 No extra scopes need to be selected.
 Copy the generated token from GitHub and store it in `pinot/values.secret.yaml` (next to the default [`pinot/values.yaml`](./pinot/values.yaml)) like this:
@@ -60,6 +62,7 @@ Copy the generated token from GitHub and store it in `pinot/values.secret.yaml` 
     ```bash
     helm install pinot -f ./pinot/values.secret.yaml ./pinot
     ```
+1. Open Pinot dashboard: https://pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com/
 
 1. Connect to controller and execute some test queries:
     ```bash

@@ -15,7 +15,7 @@ jupyterhub:
         # configures these values in values.secret.yaml
         # client_id: <client-id>
         # client_secret: <client-secret>
-        oauth_callback_url: https://jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com/hub/oauth_callback
+        oauth_callback_url: https://jupyter.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com/hub/oauth_callback
         allowed_users:
         - timebertt
         - nikolacornelia
@@ -36,7 +36,7 @@ jupyterhub:
       cert.gardener.cloud/purpose: managed
     tls:
     - hosts:
-      - jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com
+      - jupyter.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
       secretName: jupyter-tls
     hosts:
-    - jupyter.ingress.adm.d067603.shoot.staging.k8s-hana.ondemand.com
+    - jupyter.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com

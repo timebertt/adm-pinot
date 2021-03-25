@@ -5,8 +5,13 @@ pinot:
   cluster:
     name: pinot
   controller:
+    external:
+      type: ClusterIP
     persistence:
       storageClass: pd-ssd
+  broker:
+    external:
+      type: ClusterIP
   server:
     replicaCount: 3
     persistence:
@@ -21,23 +26,26 @@ pinot:
     persistence:
       storageClass: pd-ssd
 
+examples:
+  enabled: false
+
+ingress:
+  enabled: true
+  annotations:
+    cert.gardener.cloud/purpose: managed
+  tls:
+  - hosts:
+    - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
+    secretName: pinot-tls
+  hosts:
+  - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
+
+
 kafka:
   nameOverride: kafka
 
   persistence:
     storageClass: pd-ssd
-
-  provisioning:
-    enabled: true
-
-    topics:
-    - name: pullRequestMergedEvents
-      partitions: 1
-      replicationFactor: 1
-      # https://kafka.apache.org/documentation/#topicconfigs
-#       config:
-#         max.message.bytes: 64000
-#         flush.messages: 1
 
   zookeeper:
     nameOverride: kafka-zookeeper

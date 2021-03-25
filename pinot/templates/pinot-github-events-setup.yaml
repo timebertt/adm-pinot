@@ -1,3 +1,4 @@
+{{- if .Values.examples.enabled -}}
 #
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
@@ -294,3 +295,4 @@ spec:
       - name: examples
         configMap:
           name: pinot-github-events-schema-config
+{{- end -}}
