@@ -1,0 +1,21 @@
+[
+  {
+    "rider_name": "Nikola",
+    "driver_name": "Tim",
+    "license_plate": "FD-TE2911",
+    "start_location": "Schlüchtern",
+    "start_zip_code": "36381",
+    "end_location": "Petersberg",
+    "end_zip_code": "36100",
+    "rider_is_premium": 1,
+    "count": 1,
+    "payment_amount": 0,
+    "payment_tip_amount": 0,
+    "trip_wait_time_millis": 60000,
+    "rider_rating": 5,
+    "driver_rating": 5,
+    "trip_start_time_millis": 1616704629000,
+    "request_time_millis": 1616504629000,
+    "trip_end_time_millis": 1616904629000
+  }
+]

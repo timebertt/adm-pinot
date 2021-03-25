@@ -1,0 +1,100 @@
+{
+  "schemaName": "trips",
+  "dimensionFieldSpecs": [
+    {
+      "name": "rider_name",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "driver_name",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "license_plate",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "start_location",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "start_zip_code",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "end_location",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "end_zip_code",
+      "dataType": "STRING",
+      "defaultNullValue": ""
+    },
+    {
+      "name": "rider_is_premium",
+      "dataType": "INT",
+      "defaultNullValue": 0
+    }
+  ],
+  "metricFieldSpecs": [
+    {
+      "name": "count",
+      "dataType": "LONG",
+      "defaultNullValue": 1
+    },
+    {
+      "name": "payment_amount",
+      "dataType": "FLOAT",
+      "defaultNullValue": 0
+    },
+    {
+      "name": "payment_tip_amount",
+      "dataType": "FLOAT",
+      "defaultNullValue": 0
+    },
+    {
+      "name": "trip_wait_time_millis",
+      "dataType": "LONG",
+      "defaultNullValue": 0
+    },
+    {
+      "name": "rider_rating",
+      "dataType": "INT",
+      "defaultNullValue": 0
+    },
+    {
+      "name": "driver_rating",
+      "dataType": "INT",
+      "defaultNullValue": 0
+    }
+  ],
+  "dateTimeFieldSpecs": [
+    {
+      "name": "trip_start_time_millis",
+      "dataType": "LONG",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MINUTES",
+      "dateTimeType": "PRIMARY"
+    },
+    {
+      "name": "request_time_millis",
+      "dataType": "LONG",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MINUTES",
+      "dateTimeType": "SECONDARY"
+    },
+    {
+      "name": "trip_end_time_millis",
+      "dataType": "LONG",
+      "format": "1:MILLISECONDS:EPOCH",
+      "granularity": "1:MINUTES",
+      "dateTimeType": "SECONDARY"
+    }
+  ]
+}

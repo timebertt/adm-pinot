@@ -1,0 +1,38 @@
+{
+  "tableName": "trips",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "trip_start_time_millis",
+    "timeType": "MILLISECONDS",
+    "retentionTimeUnit": "DAYS",
+    "retentionTimeValue": "60",
+    "schemaName": "trips",
+    "replication": "1",
+    "replicasPerPartition": "1"
+  },
+  "tenants": {},
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "invertedIndexColumns": [
+      "rider_name",
+      "driver_name",
+      "start_location",
+      "end_location"
+    ],
+    "streamConfigs": {
+      "streamType": "kafka",
+      "stream.kafka.consumer.type": "simple",
+      "stream.kafka.topic.name": "trips",
+      "stream.kafka.decoder.class.name": "org.apache.pinot.plugin.stream.kafka.KafkaJSONMessageDecoder",
+      "stream.kafka.consumer.factory.class.name": "org.apache.pinot.plugin.stream.kafka20.KafkaConsumerFactory",
+      "stream.kafka.zk.broker.url": "pinot-kafka-zookeeper:2181",
+      "stream.kafka.broker.list": "pinot-kafka:9092",
+      "realtime.segment.flush.threshold.time": "12h",
+      "realtime.segment.flush.threshold.size": "1000",
+      "stream.kafka.consumer.prop.auto.offset.reset": "smallest"
+    }
+  },
+  "metadata": {
+    "customConfigs": {}
+  }
+}
