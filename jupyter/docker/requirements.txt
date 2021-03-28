@@ -1,3 +1,5 @@
 pinotdb==0.3.3
 kafka-python==2.0.2
 kazoo==2.8.0
+names==0.3.0
+pgeocode=0.3.0
