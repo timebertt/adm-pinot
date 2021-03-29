@@ -7,7 +7,7 @@ jupyterhub:
     defaultUrl: "/lab" # switch to new UI
     image:
       name: ghcr.io/timebertt/adm-pinot/jupyter-pinot
-      tag: 0ca1fcc267da3a3d7e9507baf2421a5d9459a467
+      tag: a55537dec634190fef7b8aa24eab09ec6511bd0a
 
   hub:
     config:

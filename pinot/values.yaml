@@ -47,6 +47,8 @@ kafka:
   persistence:
     storageClass: pd-ssd
 
+  deleteTopicEnable: true
+
   zookeeper:
     nameOverride: kafka-zookeeper
     persistence:
