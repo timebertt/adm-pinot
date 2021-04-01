@@ -49,6 +49,8 @@ kafka:
 
   deleteTopicEnable: true
 
+  logRetentionHours: 720 # 30 days
+
   zookeeper:
     nameOverride: kafka-zookeeper
     persistence:
