@@ -9,6 +9,7 @@ pinot:
       type: ClusterIP
     persistence:
       storageClass: pd-ssd
+      size: 10Gi
   broker:
     external:
       type: ClusterIP
@@ -16,15 +17,18 @@ pinot:
     replicaCount: 3
     persistence:
       storageClass: pd-ssd
+      size: 10Gi
   minion:
     # workaround for https://github.com/apache/incubator-pinot/issues/6704
     dataDir: /var/pinot/minion/data/data
     persistence:
       storageClass: pd-ssd
+      size: 10Gi
 
   zookeeper:
     persistence:
       storageClass: pd-ssd
+      size: 10Gi
 
 examples:
   enabled: false
