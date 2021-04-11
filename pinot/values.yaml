@@ -44,7 +44,6 @@ ingress:
   hosts:
   - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
 
-
 kafka:
   nameOverride: kafka
 
