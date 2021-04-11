@@ -47,10 +47,26 @@ to the corresponding values in `values.secret.yaml`.
 
 1. Install chart:
     ```bash
-    helm install pinot -f ./pinot/values.secret.yaml ./pinot
+    helm install pinot -f ./pinot/values.secret.yaml -f ./pinot/values.shoot.yaml ./pinot
+    ```
+   
+    Or to install using the default values (independent of a Gardener shoot):
+    ```bash
+    helm install pinot ./pinot
     ```
 1. Open Pinot dashboard running at Ingress (https://pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com/)  
     or port-forward to `pinot-controller` and navigate to http://localhost:9000/
     ```bash
     kubectl port-forward svc/pinot-controller 9000 &
+    ```
+
+1. Package helm chart for hand over:
+    ```bash
+    helm package --dependency-update -d assets pinot
+    # Successfully packaged chart and saved it to: assets/pinot-0.1.0.tgz
+    ```
+
+    Install the packaged helm chart using:
+    ```bash
+    helm install pinot https://raw.githubusercontent.com/timebertt/adm-pinot/master/assets/pinot-0.1.0.tgz
     ```

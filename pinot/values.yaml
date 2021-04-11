@@ -8,7 +8,6 @@ pinot:
     external:
       type: ClusterIP
     persistence:
-      storageClass: pd-ssd
       size: 10Gi
   broker:
     external:
@@ -16,39 +15,29 @@ pinot:
   server:
     replicaCount: 3
     persistence:
-      storageClass: pd-ssd
       size: 10Gi
   minion:
     # workaround for https://github.com/apache/incubator-pinot/issues/6704
     dataDir: /var/pinot/minion/data/data
     persistence:
-      storageClass: pd-ssd
       size: 10Gi
 
   zookeeper:
     persistence:
-      storageClass: pd-ssd
       size: 10Gi
 
-examples:
-  enabled: false
-
 ingress:
-  enabled: true
-  annotations:
-    cert.gardener.cloud/purpose: managed
-  tls:
-  - hosts:
-    - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
-    secretName: pinot-tls
-  hosts:
-  - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
+  enabled: false
+  #  annotations: {}
+  #  tls:
+  #  - hosts:
+  #    - pinot.example.com
+  #    secretName: pinot-tls
+  #  hosts:
+  #  - pinot.example.com
 
 kafka:
   nameOverride: kafka
-
-  persistence:
-    storageClass: pd-ssd
 
   deleteTopicEnable: true
 
@@ -56,11 +45,9 @@ kafka:
 
   zookeeper:
     nameOverride: kafka-zookeeper
-    persistence:
-      storageClass: pd-ssd
 
 storageClass:
-  create: true
+  create: false
   name: pd-ssd
   type: pd-ssd
   provisioner: pd.csi.storage.gke.io

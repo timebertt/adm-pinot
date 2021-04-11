@@ -1,0 +1,33 @@
+pinot:
+  controller:
+    persistence:
+      storageClass: pd-ssd
+  server:
+    persistence:
+      storageClass: pd-ssd
+  minion:
+    persistence:
+      storageClass: pd-ssd
+
+  zookeeper:
+    persistence:
+      storageClass: pd-ssd
+
+ingress:
+  enabled: true
+  annotations:
+    cert.gardener.cloud/purpose: managed
+  tls:
+  - hosts:
+    - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
+    secretName: pinot-tls
+  hosts:
+  - pinot.ingress.pinot.adm2021.shoot.canary.k8s-hana.ondemand.com
+
+kafka:
+  zookeeper:
+    persistence:
+      storageClass: pd-ssd
+
+storageClass:
+  create: true
